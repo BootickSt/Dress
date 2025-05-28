@@ -1,0 +1,333 @@
+{
+  "id": "af6df5bb-d8d9-4f6a-b651-5864c1fb4ade",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 35,
+  "nodes": [
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [2493.182861328125, -138.3506317138672],
+      "size": [185.291015625, 46],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "образцы", "name": "samples", "type": "LATENT", "link": 7},
+        {"localized_name": "vae", "name": "vae", "type": "VAE", "link": 8}
+      ],
+      "outputs": [
+        {"localized_name": "ИЗОБРАЖЕНИЕ", "name": "IMAGE", "type": "IMAGE", "slot_index": 0, "links": [9]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "VAEDecode"},
+      "widgets_values": []
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [2133.183349609375, -138.3506317138672],
+      "size": [315, 262],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "модель", "name": "model", "type": "MODEL", "link": 23},
+        {"localized_name": "положительный", "name": "positive", "type": "CONDITIONING", "link": 34},
+        {"localized_name": "отрицательный", "name": "negative", "type": "CONDITIONING", "link": 33},
+        {"localized_name": "латентное_изображение", "name": "latent_image", "type": "LATENT", "link": 2},
+        {"localized_name": "сид", "name": "seed", "type": "INT", "widget": {"name": "seed"}, "link": null},
+        {"localized_name": "шаги", "name": "steps", "type": "INT", "widget": {"name": "steps"}, "link": null},
+        {"localized_name": "cfg", "name": "cfg", "type": "FLOAT", "widget": {"name": "cfg"}, "link": null},
+        {"localized_name": "название_сэмплера", "name": "sampler_name", "type": "COMBO", "widget": {"name": "sampler_name"}, "link": null},
+        {"localized_name": "scheduler", "name": "scheduler", "type": "COMBO", "widget": {"name": "scheduler"}, "link": null},
+        {"localized_name": "шумоподавление", "name": "denoise", "type": "FLOAT", "widget": {"name": "denoise"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "ЛАТЕНТНЫЙ", "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": [7]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "KSampler"},
+      "widgets_values": [529958508075224, "randomize", 20, 5, "gradient_estimation", "exponential", 0.7000000000000002]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [2693.182861328125, -128.3506317138672],
+      "size": [529.7760009765625, 582.3048095703125],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "изображения", "name": "images", "type": "IMAGE", "link": 9},
+        {"localized_name": "префикс_названия_файла", "name": "filename_prefix", "type": "STRING", "widget": {"name": "filename_prefix"}, "link": null}
+      ],
+      "outputs": [],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37"},
+      "widgets_values": ["zalupa"]
+    },
+    {
+      "id": 19,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [1417.881591796875, -443.7239990234375],
+      "size": [281.3203125, 186],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "положительный", "name": "positive", "type": "CONDITIONING", "link": 28},
+        {"localized_name": "отрицательный", "name": "negative", "type": "CONDITIONING", "link": 29},
+        {"localized_name": "control_net", "name": "control_net", "type": "CONTROL_NET", "link": 27},
+        {"localized_name": "изображение", "name": "image", "type": "IMAGE", "link": 32},
+        {"localized_name": "vae", "name": "vae", "shape": 7, "type": "VAE", "link": null},
+        {"localized_name": "сила", "name": "strength", "type": "FLOAT", "widget": {"name": "strength"}, "link": null},
+        {"localized_name": "процент_начала", "name": "start_percent", "type": "FLOAT", "widget": {"name": "start_percent"}, "link": null},
+        {"localized_name": "процент_конца", "name": "end_percent", "type": "FLOAT", "widget": {"name": "end_percent"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "положительный", "name": "positive", "type": "CONDITIONING", "links": [34]},
+        {"localized_name": "отрицательный", "name": "negative", "type": "CONDITIONING", "links": [33]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "ControlNetApplyAdvanced"},
+      "widgets_values": [0.4000000000000001, 0, 0.7000000000000002]
+    },
+    {
+      "id": 14,
+      "type": "IPAdapterAdvanced",
+      "pos": [1395.45556640625, -140.848876953125],
+      "size": [315, 278],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "model", "name": "model", "type": "MODEL", "link": 20},
+        {"localized_name": "ipadapter", "name": "ipadapter", "type": "IPADAPTER", "link": 21},
+        {"localized_name": "image", "name": "image", "type": "IMAGE", "link": 26},
+        {"localized_name": "image_negative", "name": "image_negative", "shape": 7, "type": "IMAGE", "link": null},
+        {"localized_name": "attn_mask", "name": "attn_mask", "shape": 7, "type": "MASK", "link": null},
+        {"localized_name": "clip_vision", "name": "clip_vision", "shape": 7, "type": "CLIP_VISION", "link": 24},
+        {"localized_name": "weight", "name": "weight", "type": "FLOAT", "widget": {"name": "weight"}, "link": null},
+        {"localized_name": "weight_type", "name": "weight_type", "type": "COMBO", "widget": {"name": "weight_type"}, "link": null},
+        {"localized_name": "combine_embeds", "name": "combine_embeds", "type": "COMBO", "widget": {"name": "combine_embeds"}, "link": null},
+        {"localized_name": "start_at", "name": "start_at", "type": "FLOAT", "widget": {"name": "start_at"}, "link": null},
+        {"localized_name": "end_at", "name": "end_at", "type": "FLOAT", "widget": {"name": "end_at"}, "link": null},
+        {"localized_name": "embeds_scaling", "name": "embeds_scaling", "type": "COMBO", "widget": {"name": "embeds_scaling"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "МОДЕЛЬ", "name": "MODEL", "type": "MODEL", "slot_index": 0, "links": [23]}
+      ],
+      "properties": {"cnr_id": "comfyui_ipadapter_plus", "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef", "Node name for S&R": "IPAdapterAdvanced"},
+      "widgets_values": [1.0000000000000002, "strong style transfer", "concat", 0, 0.6000000000000001, "V only"]
+    },
+    {
+      "id": 17,
+      "type": "PrepImageForClipVision",
+      "pos": [1043.31640625, 116.75155639648438],
+      "size": [315, 106],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "image", "name": "image", "type": "IMAGE", "link": 25},
+        {"localized_name": "interpolation", "name": "interpolation", "type": "COMBO", "widget": {"name": "interpolation"}, "link": null},
+        {"localized_name": "crop_position", "name": "crop_position", "type": "COMBO", "widget": {"name": "crop_position"}, "link": null},
+        {"localized_name": "sharpening", "name": "sharpening", "type": "FLOAT", "widget": {"name": "sharpening"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "ИЗОБРАЖЕНИЕ", "name": "IMAGE", "type": "IMAGE", "slot_index": 0, "links": [26]}
+      ],
+      "properties": {"cnr_id": "comfyui_ipadapter_plus", "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef", "Node name for S&R": "PrepImageForClipVision"},
+      "widgets_values": ["LANCZOS", "center", 0.10000000000000002]
+    },
+    {
+      "id": 12,
+      "type": "LoadImage",
+      "pos": [720.5919799804688, 117.27699279785156],
+      "size": [315, 314],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "изображение", "name": "image", "type": "COMBO", "widget": {"name": "image"}, "link": null},
+        {"localized_name": "выберите файл для загрузки", "name": "upload", "type": "IMAGEUPLOAD", "widget": {"name": "upload"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "ИЗОБРАЖЕНИЕ", "name": "IMAGE", "type": "IMAGE", "slot_index": 0, "links": [25]},
+        {"localized_name": "МАСКА", "name": "MASK", "type": "MASK", "links": null}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "LoadImage"},
+      "widgets_values": ["4000274576284.jpg", "image"]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [1770.110595703125, -23.559934616088867],
+      "size": [315, 106],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "ширина", "name": "width", "type": "INT", "widget": {"name": "width"}, "link": null},
+        {"localized_name": "высота", "name": "height", "type": "INT", "widget": {"name": "height"}, "link": null},
+        {"localized_name": "размер_пакета", "name": "batch_size", "type": "INT", "widget": {"name": "batch_size"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "ЛАТЕНТНЫЙ", "name": "LATENT", "type": "LATENT", "slot_index": 0, "links": [2]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "EmptyLatentImage"},
+      "widgets_values": [720, 960, 1]
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [711.9845581054688, -243.31634521484375],
+      "size": [325.126953125, 314],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "изображение", "name": "image", "type": "COMBO", "widget": {"name": "image"}, "link": null},
+        {"localized_name": "выберите файл для загрузки", "name": "upload", "type": "IMAGEUPLOAD", "widget": {"name": "upload"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "ИЗОБРАЖЕНИЕ", "name": "IMAGE", "type": "IMAGE", "links": [32]},
+        {"localized_name": "МАСКА", "name": "MASK", "type": "MASK", "links": null}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "LoadImage"},
+      "widgets_values": ["person.png", "image"]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [599.22705078125, -490.6000061035156],
+      "size": [425.27801513671875, 180.6060791015625],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "clip", "name": "clip", "type": "CLIP", "link": 5},
+        {"localized_name": "текст", "name": "text", "type": "STRING", "widget": {"name": "text"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "КОНДИЦИОНИРОВАНИЕ", "name": "CONDITIONING", "type": "CONDITIONING", "slot_index": 0, "links": [29]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["low quality, blurry, pixelated, grainy, distorted, oversmoothed"]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [599.7335815429688, -693.659423828125],
+      "size": [422.84503173828125, 164.31304931640625],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "clip", "name": "clip", "type": "CLIP", "link": 3},
+        {"localized_name": "текст", "name": "text", "type": "STRING", "widget": {"name": "text"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "КОНДИЦИОНИРОВАНИЕ", "name": "CONDITIONING", "type": "CONDITIONING", "slot_index": 0, "links": [28]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "CLIPTextEncode"},
+      "widgets_values": ["A woman wearing a Short above-the-knee dress light beige floral dress with short white puff sleeves, a wide white collar, vintage style, realistic \n"]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [241.20269775390625, -97.9603042602539],
+      "size": [315, 98],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "название_точки_проверки", "name": "ckpt_name", "type": "COMBO", "widget": {"name": "ckpt_name"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "МОДЕЛЬ", "name": "MODEL", "type": "MODEL", "slot_index": 0, "links": [20]},
+        {"localized_name": "CLIP", "name": "CLIP", "type": "CLIP", "slot_index": 1, "links": [3, 5]},
+        {"localized_name": "VAE", "name": "VAE", "type": "VAE", "slot_index": 2, "links": [8]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "CheckpointLoaderSimple"},
+      "widgets_values": ["RealVisXL.safetensors"]
+    },
+    {
+      "id": 15,
+      "type": "IPAdapterModelLoader",
+      "pos": [243.24081420898438, -192.521484375],
+      "size": [315, 58],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "ipadapter_file", "name": "ipadapter_file", "type": "COMBO", "widget": {"name": "ipadapter_file"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "IPADAPTER", "name": "IPADAPTER", "type": "IPADAPTER", "links": [21]}
+      ],
+      "properties": {"cnr_id": "comfyui_ipadapter_plus", "ver": "a0f451a5113cf9becb0847b92884cb10cbdec0ef", "Node name for S&R": "IPAdapterModelLoader"},
+      "widgets_values": ["ip-adapter-plus_sd15.bin"]
+    },
+    {
+      "id": 18,
+      "type": "ControlNetLoader",
+      "pos": [245.35935974121094, -287.1890563964844],
+      "size": [286.5757751464844, 58],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "название_control_net", "name": "control_net_name", "type": "COMBO", "widget": {"name": "control_net_name"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "CONTROL_NET", "name": "CONTROL_NET", "type": "CONTROL_NET", "links": [27]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "ControlNetLoader"},
+      "widgets_values": ["control_v11p_sd15_depth.pth"]
+    },
+    {
+      "id": 16,
+      "type": "CLIPVisionLoader",
+      "pos": [242.5452117919922, 36.958351135253906],
+      "size": [315, 58],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {"localized_name": "название_clip", "name": "clip_name", "type": "COMBO", "widget": {"name": "clip_name"}, "link": null}
+      ],
+      "outputs": [
+        {"localized_name": "CLIP_VISION", "name": "CLIP_VISION", "type": "CLIP_VISION", "links": [24]}
+      ],
+      "properties": {"cnr_id": "comfy-core", "ver": "0.3.37", "Node name for S&R": "CLIPVisionLoader"},
+      "widgets_values": ["model.safetensors"]
+    }
+  ],
+  "links": [
+    [2, 5, 0, 3, 3, "LATENT"],
+    [3, 4, 1, 6, 0, "CLIP"],
+    [5, 4, 1, 7, 0, "CLIP"],
+    [7, 3, 0, 8, 0, "LATENT"],
+    [8, 4, 2, 8, 1, "VAE"],
+    [9, 8, 0, 9, 0, "IMAGE"],
+    [20, 4, 0, 14, 0, "MODEL"],
+    [21, 15, 0, 14, 1, "IPADAPTER"],
+    [23, 14, 0, 3, 0, "MODEL"],
+    [24, 16, 0, 14, 5, "CLIP_VISION"],
+    [25, 12, 0, 17, 0, "IMAGE"],
+    [26, 17, 0, 14, 2, "IMAGE"],
+    [27, 18, 0, 19, 2, "CONTROL_NET"],
+    [28, 6, 0, 19, 0, "CONDITIONING"],
+    [29, 7, 0, 19, 1, "CONDITIONING"],
+    [32, 20, 0, 19, 3, "IMAGE"],
+    [33, 19, 1, 3, 2, "CONDITIONING"],
+    [34, 19, 0, 3, 1, "CONDITIONING"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7347761120809165,
+      "offset": [1303.5097824192703, 1301.5640643702254]
+    }
+  },
+  "version": 0.4
+}
