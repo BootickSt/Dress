@@ -3,7 +3,8 @@ Models: <br>
 RealVisXL<br>
 control_v11p_sd15_depth<br>
 ip-adapter-plus_sd15<br>
-![Model](https://github.com/user-attachments/assets/309e7c69-4cd0-418b-91ad-18158abd94f2)
+![Model](https://github.com/user-attachments/assets/4f5df3f8-15e4-4b32-a4b8-7b946095a4c6)
+
 
 1. Загрузка моделей
 
@@ -24,12 +25,9 @@ ip-adapter-plus_sd15<br>
 3. Текстовые промпты
 
     CLIPTextEncode (x2) – кодирует:
+       Позитивный и негативный.
 
-        Позитивный промпт (описание платья).
-
-        Негативный промпт (ухудшающие слова).
-
-4. Генерация изображения
+5. Генерация изображения
 
     EmptyLatentImage – создает пустое латентное изображение (720x960).
 
@@ -39,7 +37,7 @@ ip-adapter-plus_sd15<br>
 
     KSampler – генерирует изображение (20 шагов, CFG=5, экспоненциальный шедулер).
 
-5. Сохранение результата
+6. Сохранение результата
 
     VAEDecode – декодирует латентное изображение в PNG.
 
