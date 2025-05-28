@@ -43,6 +43,21 @@ ip-adapter-plus_sd15<br>
     VAEDecode – декодирует латентное изображение в PNG.
 
 SaveImage – сохраняет результат.
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/2c06e769-dc58-43f9-a88d-18054a697c2d" alt="person2" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/3de0a79c-0a2d-411d-9819-e785e5dbdf08" alt="first_woman" width="300"></td>
+  </tr>
+</table>
 
-![person2](https://github.com/user-attachments/assets/2c06e769-dc58-43f9-a88d-18054a697c2d)
-![first_woman](https://github.com/user-attachments/assets/3de0a79c-0a2d-411d-9819-e785e5dbdf08)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d4b2ecac-f214-485a-b57d-28cfa69dcbb0" alt="person2" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/5b32e428-0aac-48cc-9de8-699a41c92111" alt="first_woman" width="300"></td>
+  </tr>
+</table>
+
+
+
+
+
