@@ -39,6 +39,10 @@ ip-adapter-plus_sd15<br>
 
 6. Сохранение результата
 
+
     VAEDecode – декодирует латентное изображение в PNG.
 
-    SaveImage – сохраняет результат.
+SaveImage – сохраняет результат.
+
+![person2](https://github.com/user-attachments/assets/2c06e769-dc58-43f9-a88d-18054a697c2d)
+![first_woman](https://github.com/user-attachments/assets/3de0a79c-0a2d-411d-9819-e785e5dbdf08)
