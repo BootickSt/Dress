@@ -69,7 +69,7 @@ ip-adapter-plus_sd15<br>
     </tr>
     <tr>
         <td>end_at</td>
-        <td>0.6<td>
+        <td>0.6</td>
     </tr>
 </table>
 
